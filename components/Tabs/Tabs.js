@@ -11,7 +11,7 @@ class TabLink {
     this.itemElement = document.querySelector(`.tabs-item[data-tab='${this.data}']`);
     
     // Using the Item element, create a new instance of the TabItem class
-    this.tabItem = new TabItem(this.data);
+    this.tabItem = new TabItem(this.itemElement);
     
     // Add a click event listener on this instance, calling the select method on click
     this.element.addEventListener('click', () => this.select());
@@ -42,8 +42,9 @@ class TabItem {
   }
 
   select() {
+    console.log(this.element)
     // Select all ".tabs-item" elements from the DOM
-    const items = document.querySelectorAll ('.tabs-item');
+    const items = document.querySelectorAll('.tabs-item');
    
 
     // Remove the class "tabs-item-selected" from each element
